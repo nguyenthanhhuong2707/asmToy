@@ -19,7 +19,6 @@ app.use('/',indexController);
 var bookController = require('./book.js')
 app.use('/book',bookController);  
 
-
-var server = app.listen(5000,function(){
+app.listen(process.env.PORT || 5000,function(){
     console.log("Server is running in 5000 port");
 })
