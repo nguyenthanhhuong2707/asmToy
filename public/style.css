@@ -1,0 +1,50 @@
+body
+{
+    font-family: 'Roboto', sans-serif;
+}
+h1.title {
+    padding-left: 670px;
+    padding-top: 50px;
+    color: #079992;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+form {
+    padding-left: 280px;
+    font-family: 'Roboto', sans-serif;
+    color: #079992;
+    font-size: 18px;
+    font-weight: bold;
+}
+input.text1,
+input.text3
+{
+    width: 900px;
+    height: 40px;
+}
+input.text2
+{
+    width: 890px;
+    height: 40px;
+}
+textarea.text4
+{
+    width: 900px;
+    height: 100px;
+}
+input.submit {
+    border-radius: 20px 20px;
+    width: 200px;
+    height: 40px;
+    padding-top: 8px;
+    text-transform: uppercase;
+    color: white;
+    background: -webkit-linear-gradient(left, #1abc9c,#55E6C1);
+}
+input.submit:hover
+{
+    background: -webkit-linear-gradient(left,#55E6C1, #1abc9c);    
+}
+
+
+
