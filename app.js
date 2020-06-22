@@ -13,7 +13,7 @@ app.engine('hbs',engines.handlebars);
 app.set('views','./views');
 app.set('view engine','hbs');
 
-
+//huong
 // var indexController = require('./index.js');
 // app.use('/',indexController);
 var toyController = require('./toy.js')
