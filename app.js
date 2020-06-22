@@ -19,7 +19,7 @@ app.set('view engine','hbs');
 var toyController = require('./toy.js')
 app.use('/',toyController);  
 
-app.listen(process.env.PORT || 4000,function(){
+app.listen(process.env.PORT || 1000,function(){
     console.log("Server is running in 4000 port");
 })
 
