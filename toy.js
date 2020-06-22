@@ -35,7 +35,8 @@ router.post('/doInsert',async(req,res)=>{
     let priceValue = req.body.txtPrice;
     let producerValue = req.body.txtProducer;
     let materialValue = req.body.txtMaterial;
-    let newToy = {name : nameValue, material : materialValue, price: priceValue,producer:producerValue};
+    let abc = materialValue.toUpperCase();
+    let newToy = {name : nameValue, material : abc, price: priceValue,producer:producerValue};
     await dbo.collection("toys").insertOne(newToy);
     console.log(newToy);
     // let results = await dbo.collection("books").find({}).toArray();
