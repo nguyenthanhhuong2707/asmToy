@@ -19,8 +19,9 @@ router.get('/delete',async (req,res)=>{
     let dbo = client.db("asmdb");
     await dbo.collection("toys").deleteOne(condition);
 
-    let results = await dbo.collection("toys").find({}).toArray();
-    res.render('toy',{toys:results});
+    // let results = await dbo.collection("toys").find({}).toArray();
+    // res.render('toy',{toys:results});
+    res.redirect('/');
 });
 
 
@@ -39,7 +40,7 @@ router.post('/doInsert',async(req,res)=>{
     console.log(newToy);
     // let results = await dbo.collection("books").find({}).toArray();
     // res.render('book',{books:results});
-    res.redirect("/toy");
+    res.redirect("/");
 });
 
 router.get('/update',async(req,res)=>
@@ -65,7 +66,9 @@ router.post('/doUpdate', async(req,res)=>{
     let dbo = client.db("asmdb");
     await dbo.collection("toys").updateOne(condition,newValues);
     
-    let results = await dbo.collection("toys").find({}).toArray();
-    res.render('toy',{toys:results});
+    // let results = await dbo.collection("toys").find({}).toArray();
+    // res.render('toy',{toys:results});
+
+    res.redirect('/');
 });
 module.exports = router;
