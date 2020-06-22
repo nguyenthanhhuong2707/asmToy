@@ -9,23 +9,23 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Update Book</h1>
+        <h1 class="title">Update Toy</h1>
         <div class="box-input">
             <form action="doUpdate" method="POST">
                 Name:
-                <input type="hidden" class="text" name="id" value="{{books._id}}">
-                <input class="text1" type="text" name="txtName" placeholder="" value="{{books.name}}">
+                <input type="hidden" class="text" name="id" value="{{toys._id}}">
+                <input class="text1" type="text" name="txtName" placeholder="" value="{{toys.name}}">
                 <br><br>
-                Author:
-                <input class="text2" type="text" name="txtAuthor" placeholder="" value="{{books.author}}"> 
+                Material:
+                <input class="text2" type="text" name="txtMaterial" placeholder="" value="{{toys.material}}"> 
                 <br><br>
                 Price:
-                <input class="text3" type="text" name="txtPrice" placeholder="" value="{{books.price}}">
+                <input class="text3" type="text" name="txtPrice" placeholder="" value="{{toys.price}}">
                 <br><br>
-                Detail:
-                <textarea class="text4" name="txtDetail" cols="36" rows="10" placeholder="">{{books.detail}}</textarea>
+                Producer:
+                <textarea class="text4" name="txtProducer" cols="36" rows="10" placeholder="">{{toys.producer}}</textarea>
                 <br><br>
-                <input class="submit" type="submit" value="Update book">
+                <input class="submit" type="submit" value="Update Toy">
             </form>
         </div>
     </div>

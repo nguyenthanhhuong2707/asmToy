@@ -14,11 +14,16 @@ app.set('views','./views');
 app.set('view engine','hbs');
 
 
-var indexController = require('./index.js');
-app.use('/',indexController);
-var bookController = require('./book.js')
-app.use('/book',bookController);  
+// var indexController = require('./index.js');
+// app.use('/',indexController);
+var toyController = require('./toy.js')
+app.use('/',toyController);  
 
-app.listen(process.env.PORT || 5000,function(){
-    console.log("Server is running in 5000 port");
+app.listen(process.env.PORT || 4000,function(){
+    console.log("Server is running in 4000 port");
 })
+
+
+
+
+

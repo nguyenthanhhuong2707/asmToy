@@ -8,8 +8,8 @@ var url = "mongodb+srv://nguyenhuonghh2707:0346924758@cluster0-qj71u.mongodb.net
 router.get('/',async (req,res)=>{   
     let client = await MongoClient.connect(url);
     let dbo = client.db("asmdb");
-    let result = await dbo.collection("books").find({}).toArray();
-    res.render('book',{books:result});
+    let result = await dbo.collection("toys").find({}).toArray();
+    res.render('toy',{toys:result});
 });
 router.get('/delete',async (req,res)=>{
     let id = req.query.id;
@@ -17,52 +17,55 @@ router.get('/delete',async (req,res)=>{
     let condition = {"_id" : ObjectID(id)};
     let client= await MongoClient.connect(url);
     let dbo = client.db("asmdb");
-    await dbo.collection("books").deleteOne(condition);
-    //
-    let results = await dbo.collection("books").find({}).toArray();
-    res.render('book',{books:results});
+    await dbo.collection("toys").deleteOne(condition);
+
+    let results = await dbo.collection("toys").find({}).toArray();
+    res.render('toy',{toys:results});
 });
+
+
 router.get('/insert',async(req,res)=>{
-    res.render('insertBook');
+    res.render('insertToy');
 });
 router.post('/doInsert',async(req,res)=>{
     let client= await MongoClient.connect(url);
     let dbo = client.db("asmdb");
     let nameValue = req.body.txtName;
     let priceValue = req.body.txtPrice;
-    let detailValue = req.body.txtDetail;
-    let authorValue = req.body.txtAuthor;
-    let newBook = {name : nameValue, author : authorValue, price: priceValue,detail:detailValue};
-    await dbo.collection("books").insertOne(newBook);
-    console.log(newBook);
+    let producerValue = req.body.txtProducer;
+    let materialValue = req.body.txtMaterial;
+    let newToy = {name : nameValue, material : materialValue, price: priceValue,producer:producerValue};
+    await dbo.collection("toys").insertOne(newToy);
+    console.log(newToy);
     // let results = await dbo.collection("books").find({}).toArray();
     // res.render('book',{books:results});
-    res.redirect("/book");
+    res.redirect("/toy");
 });
+
 router.get('/update',async(req,res)=>
 {
     let id = req.query.id;
     var ObjectID = require('mongodb').ObjectID; 
     let cliet = await MongoClient.connect(url);
     let dbo = cliet.db('asmdb');
-    let result = await dbo.collection("books").findOne({'_id' : ObjectID(id)});
-    res.render('updateBook',{books:result});
+    let result = await dbo.collection("toys").findOne({'_id' : ObjectID(id)});
+    res.render('updateToy',{toys:result});
 })
 router.post('/doUpdate', async(req,res)=>{
     let id = req.body.id;
     let nameValue = req.body.txtName;
     let priceValue = req.body.txtPrice;
-    let detailValue = req.body.txtDetail;
-    let authorValue = req.body.txtAuthor;
-    let newValues ={$set : {name: nameValue,author:authorValue,price:priceValue,detail:detailValue}};
+    let producerValue = req.body.txtProducer;
+    let materialValue = req.body.txtMaterial;
+    let newValues ={$set : {name: nameValue,material:materialValue,price:priceValue,producer:producerValue}};
     var ObjectID = require('mongodb').ObjectID;
     let condition = {"_id" : ObjectID(id)};
     
     let client= await MongoClient.connect(url);
     let dbo = client.db("asmdb");
-    await dbo.collection("books").updateOne(condition,newValues);
-    //
-    let results = await dbo.collection("books").find({}).toArray();
-    res.render('book',{books:results});
+    await dbo.collection("toys").updateOne(condition,newValues);
+    
+    let results = await dbo.collection("toys").find({}).toArray();
+    res.render('toy',{toys:results});
 });
 module.exports = router;
